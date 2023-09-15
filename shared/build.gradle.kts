@@ -29,6 +29,7 @@ kotlin {
                     api(core)
                     api(test)
                 }
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
             }
         }
         val commonTest by getting {
