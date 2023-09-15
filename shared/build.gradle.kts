@@ -30,6 +30,13 @@ kotlin {
                     api(test)
                 }
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+                implementation(Deps.coroutinesDependency)
+
+                implementation(Deps.kotlinSerializationDependency)
+
+                implementation(Deps.ktorDependency)
+                implementation(Deps.ktorSerializationDependency)
+                implementation(Deps.ktorClientNegotiationDependency)
             }
         }
         val commonTest by getting {
@@ -37,7 +44,11 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-        val androidMain by getting
+        val androidMain by getting {
+            dependencies {
+                implementation(Deps.ktorAndroidDependency)
+            }
+        }
         val androidUnitTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
@@ -47,6 +58,10 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
+
+            dependencies {
+                implementation(Deps.ktorIOSDependency)
+            }
         }
         val iosX64Test by getting
         val iosArm64Test by getting
