@@ -1,6 +1,6 @@
 package com.asn.kotlinmulltiplatformsample
 
-import RocketLaunch
+import com.asn.kotlinmulltiplatformsample.com.asn.kotlinmulltiplatformsample.rocketExample.RocketLaunch
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.plugins.contentnegotiation.*
@@ -21,14 +21,13 @@ class Greeting {
         }
     }
 
-    suspend fun greet(): String {
-        val rockets: List<RocketLaunch> =
-            httpClient.get("https://api.spacexdata.com/v4/launches").body()
+        suspend fun greet(): String {
+            val rockets: List<RocketLaunch> = httpClient.get("https://api.spacexdata.com/v4/launches").body()
 
-        val lastSuccessLaunch = rockets.last { it.launchSuccess == true }
+            val lastSuccessLaunch = rockets.last { it.launchSuccess == true }
 
-        return "Guess what it is! > ${platform.name}!" +
-                "\nThere are only ${daysUntilNewYear()} left until New Year! 🎆" +
-                "\nThe last successful launch was ${lastSuccessLaunch.launchDateUTC} 🚀"
+            return "Guess what it is! > ${platform.name}!" +
+                    "\nThere are only ${daysUntilNewYear()} left until New Year! 🎆" +
+                    "\nThe last successful launch was ${lastSuccessLaunch.launchDateUTC} 🚀"
+        }
     }
-}

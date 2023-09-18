@@ -1,6 +1,7 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    kotlin("plugin.serialization") version "1.8.0"
 }
 
 kotlin {
@@ -29,6 +30,8 @@ kotlin {
                     api(core)
                     api(test)
                 }
+                implementation(kotlin("reflect"))
+
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
                 implementation(Deps.coroutinesDependency)
 

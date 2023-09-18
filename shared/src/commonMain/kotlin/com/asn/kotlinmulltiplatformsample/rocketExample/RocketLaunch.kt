@@ -1,3 +1,5 @@
+package com.asn.kotlinmulltiplatformsample.com.asn.kotlinmulltiplatformsample.rocketExample
+
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
